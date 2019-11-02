@@ -150,8 +150,7 @@ public class Story {
 
         game.nextPosition1 = "attack";
         game.nextPosition2 = "crossroad";
-        game.nextPosition3 = "";
-        game.nextPosition4 = "";
+        game.nextPosition3 = "";   game.nextPosition4 = "";
     }
 
     public void playerAttack() {
@@ -207,47 +206,48 @@ public class Story {
 
     }
 
-        public void win() {
-            ui.mainTextArea.setText("You've defeated the " + monster.name + "!\nThe monster dropped a ring!\n\n(You obtained a Silver Ring!");
+    public void win() {
+        ui.mainTextArea.setText("You've defeated the " + monster.name + "!\nThe monster dropped a ring!\n\n(You obtained a Silver Ring!");
 
-            silverRing = 1;
+        silverRing = 1;
 
-            ui.choice1.setText("Go east");
-            ui.choice2.setText("");
-            ui.choice3.setText("");
-            ui.choice4.setText("");
+        ui.choice1.setText("Go east");
+        ui.choice2.setText("");
+        ui.choice3.setText("");
+        ui.choice4.setText("");
 
-            game.nextPosition1 = "crossroad";
-            game.nextPosition2 = "";
-            game.nextPosition3 = "";
-            game.nextPosition4 = "";
-        }
+        game.nextPosition1 = "crossroad";
+        game.nextPosition2 = "";
+        game.nextPosition3 = "";
+        game.nextPosition4 = "";
+    }
 
-        public void lose() {
-            ui.mainTextArea.setText("You are dead!\n\nGame Over.");
+    public void lose() {
+        ui.mainTextArea.setText("You are dead!\n\nGame Over.");
 
-            ui.choice1.setText("To the title screen");
-            ui.choice2.setText("");
-            ui.choice3.setText("");
-            ui.choice4.setText("");
+        ui.choice1.setText("To the title screen");
+        ui.choice2.setText("");
+        ui.choice3.setText("");
+        ui.choice4.setText("");
 
-            game.nextPosition1 = "toTitle";
-            game.nextPosition2 = "";
-            game.nextPosition3 = "";
-            game.nextPosition4 = "";
-        }
+        game.nextPosition1 = "toTitle";
+        game.nextPosition2 = "";
+        game.nextPosition3 = "";
+        game.nextPosition4 = "";
+    }
 
-        public void ending() {
-            ui.mainTextArea.setText("Oh, you killed that goblin!?\nThank you so much. You are a true hero!\nWelcome to our town!\n\nThe end");
+    public void ending() {
+        ui.mainTextArea.setText("Oh, you killed that goblin!?\nThank you so much. You are a true hero!\nWelcome to our town!\n\nThe end");
 
-            ui.choice1.setVisible(false);
-            ui.choice2.setVisible(false);
-            ui.choice3.setVisible(false);
-            ui.choice4.setVisible(false);
-        }
+        ui.choice1.setVisible(false);
+        ui.choice2.setVisible(false);
+        ui.choice3.setVisible(false);
+        ui.choice4.setVisible(false);
+    }
 
-        public void toTitle() {
-            defaultSetup();
-            vm.showTitleScreen();
-        }
+    public void toTitle() {
+        defaultSetup();
+        vm.showTitleScreen();
+    }
+
 }
