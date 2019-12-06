@@ -2,10 +2,12 @@ package package01;
 
 public class VisibilityManager {
 
+//    public Player player;
     UI ui;
 
     public VisibilityManager(UI userInterface) {
         ui = userInterface;
+//        player = new Player();
     }
 
     public void showTitleScreen() {
@@ -23,18 +25,21 @@ public class VisibilityManager {
         ui.menuPanel.setVisible(false);
         ui.dungeonPanel.setVisible(false);
     }
-    public void menuScreen(String view) {
+    public void menuScreen(String view, Player player, Game.ChoiceHandler cHandler) {
         if (view == "viewQuests") {
             ui.questsPanel.setVisible(true);
             ui.playerViewPanel.setVisible(false);
         }
         else if (view == "viewPlayer") {
+            ui.hpNumberLabel.setText("" + player.getHP());
             ui.playerViewPanel.setVisible(true);
             ui.questsPanel.setVisible(false);
         }
         else if (view == "viewDungeons") {
-            System.out.println("Hello");
+            ui.dungeonView(cHandler);
             ui.dungeonPanel.setVisible(true);
+            ui.playerViewPanel.setVisible(false);
+            ui.questsPanel.setVisible(false);
         }
         // Show menu screen
         ui.menuPanel.setVisible(true);
@@ -47,7 +52,7 @@ public class VisibilityManager {
         ui.playerPanel.setVisible(false);
     }
 
-    public void titleToTown() {
+    public void dungeon() {
         // Hide the title screen
         ui.titleNamePanel.setVisible(false);
         ui.startButtonPanel.setVisible(false);

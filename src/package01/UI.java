@@ -2,8 +2,10 @@ package package01;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class UI {
+    public Player player;
 
     // Title Screen
     JFrame window;
@@ -188,21 +190,24 @@ public class UI {
         playerViewPanel.add(hpNumberLabel);
         window.add(playerViewPanel);
 
-
-        // DUNGEON PANEL
+//        DUNGEON PANEL
         dungeonPanel = new JPanel();
         dungeonPanel.setBounds(250, 15, 500, 150);
         dungeonPanel.setBackground(Color.black);
-        lvl5DungeonButton = new JButton("Level 5 Dungeon");
-        lvl5DungeonButton.setFont(normalFont);
-        lvl5DungeonButton.setFocusPainted(false);
-        lvl5DungeonButton.addActionListener(cHandler);
-        lvl5DungeonButton.setActionCommand("doLvl5Dungeon");
-        dungeonPanel.add(lvl5DungeonButton);
         window.add(dungeonPanel);
 
         // MAP PANEL
 
         window.setVisible(true);
+    }
+
+    public void dungeonView(Game.ChoiceHandler cHandler) {
+        dungeonPanel.removeAll();
+            lvl5DungeonButton = new JButton("Level 5 Dungeon");
+            lvl5DungeonButton.setFont(normalFont);
+            lvl5DungeonButton.setFocusPainted(false);
+            lvl5DungeonButton.addActionListener(cHandler);
+            lvl5DungeonButton.setActionCommand("doLvl5Dungeon");
+            dungeonPanel.add(lvl5DungeonButton);
     }
 }

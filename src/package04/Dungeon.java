@@ -13,6 +13,19 @@ public class Dungeon {
     public int lvl;
     public int goldReward;
     public int xpReward;
+    public boolean completed;
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String newName) {
+        this.name = newName;
+    }
+
+    public void displayDungeonDetails() {
+
+    }
 }
 
 
